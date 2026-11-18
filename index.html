@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0b0f">
+  <meta name="description" content="Premazing — городской RolePlay-проект на базе GTA: San Andreas и SA-MP 0.3.7. Создай персонажа, выбери фракцию и начни свою историю.">
+  <meta property="og:title" content="Premazing — твоя история начинается здесь">
+  <meta property="og:description" content="Городской RolePlay, 12 фракций, голосовой чат и фирменный CEF-клиент.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/gallery-02.jpg">
+  <title>Premazing — городской RolePlay в SA-MP</title>
+  <link rel="preload" href="assets/proxima-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/proxima-bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <svg class="svg-sprite" aria-hidden="true">
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="icon-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z"/></symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M5 20h14"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24"><path d="M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM17 11a3 3 0 0 0 0-6M22 20v-2a4 4 0 0 0-3-3.65"/></symbol>
+    <symbol id="icon-voice" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5M8 22h8"/></symbol>
+    <symbol id="icon-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7l10-5ZM2 12l10 5 10-5M2 17l10 5 10-5"/></symbol>
+    <symbol id="icon-radio" viewBox="0 0 24 24"><path d="M4.9 19.1a10 10 0 0 1 0-14.2M8.5 15.5a5 5 0 0 1 0-7M19.1 4.9a10 10 0 0 1 0 14.2M15.5 8.5a5 5 0 0 1 0 7"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="icon-box" viewBox="0 0 24 24"><path d="m21 8-9-5-9 5 9 5 9-5ZM3 8v9l9 5 9-5V8M12 13v9"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="icon-discord" viewBox="0 0 24 24"><path d="M19.5 5.3A16 16 0 0 0 15.6 4l-.5 1a14 14 0 0 0-6.2 0l-.5-1a16 16 0 0 0-3.9 1.3C2 9 1.3 12.6 1.6 16.2A16 16 0 0 0 6.4 19l1.2-1.6-1.9-.9.4-.3a11.4 11.4 0 0 0 11.8 0l.4.3-1.9.9L17.6 19a16 16 0 0 0 4.8-2.8c.4-4.2-.7-7.7-2.9-10.9ZM8.7 14.2c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4 2.1 1.1 2.1 2.4-.9 2.4-2.1 2.4Zm6.6 0c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4 2.1 1.1 2.1 2.4-.9 2.4-2.1 2.4Z"/></symbol>
+    <symbol id="icon-vk" viewBox="0 0 24 24"><path d="M12.7 17.5c-5.9 0-9.3-4-9.4-10.8h3c.1 5 2.3 7.1 4 7.5V6.7h2.8v4.3c1.7-.2 3.4-2.1 4-4.3h2.8a8.2 8.2 0 0 1-3.8 5.4 8.5 8.5 0 0 1 4.5 5.4h-3.1a5.3 5.3 0 0 0-4.4-3.8v3.8h-.4Z"/></symbol>
+    <symbol id="icon-telegram" viewBox="0 0 24 24"><path d="m21.5 3.4-18.8 7.2c-1.3.5-1.3 1.2-.2 1.6l4.8 1.5 1.8 5.5c.2.6.1.9.8.9.5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.3-1.5ZM7.2 13.5l10.7-6.7c.5-.3 1-.1.6.2l-8.9 8-.3 3.6-2.1-5.1Z"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="icon-expand" viewBox="0 0 24 24"><path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5"/></symbol>
+  </svg>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Premazing — на главную">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="brand-name">PREMAZING<small>ROLE PLAY</small></span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+        <a href="#about">О проекте</a>
+        <a href="#start">Как начать играть</a>
+        <a href="#media">Медиа</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#community">Сообщество</a>
+        <a href="https://premaze-forum-m2ds0hqr30a.qoder.website/" target="_blank" rel="noopener noreferrer">Форум</a>
+        <a href="https://premaze-forum-m2ds0hqr30a.qoder.website/#/forum/pravila" target="_blank" rel="noopener noreferrer">Правила</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="socials" aria-label="Социальные сети">
+          <a class="icon-button" href="https://discord.gg/R3mr4DkHP" target="_blank" rel="noopener noreferrer" aria-label="Discord"><svg><use href="#icon-discord"/></svg></a>
+          <button class="icon-button" type="button" data-unavailable="VK" aria-label="VK — ссылка пока не добавлена"><svg><use href="#icon-vk"/></svg></button>
+          <button class="icon-button" type="button" data-unavailable="Telegram" aria-label="Telegram — ссылка пока не добавлена"><svg><use href="#icon-telegram"/></svg></button>
+        </div>
+        <button class="button button--small header-play" type="button" data-open-start>Играть</button>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Открыть меню"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-shade"></div>
+      <img class="hero-art" src="assets/hero-character.webp" alt="" aria-hidden="true">
+      <div class="hero-grid container">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span></span> GTA: San Andreas · SA-MP 0.3.7</p>
+          <h1 id="hero-title">Твой город.<br><em>Твоя история.</em></h1>
+          <p class="hero-lead">Городской RolePlay, в котором ты сам выбираешь путь — от государственной службы до криминального мира. Создай персонажа и начни с первой сцены.</p>
+          <div class="hero-actions">
+            <button class="button button--primary" type="button" data-open-start>Начать играть <svg><use href="#icon-arrow"/></svg></button>
+            <button class="button button--ghost" id="watch-trailer" type="button"><span class="play-mini"><svg><use href="#icon-play"/></svg></span> Смотреть трейлер</button>
+          </div>
+          <div class="hero-meta"><span>Windows</span><span>GTA SA 1.0 US</span><span>Вход свободный</span></div>
+        </div>
+
+        <aside class="server-card reveal" aria-label="Мониторинг сервера">
+          <div class="server-card__top">
+            <div>
+              <p class="server-label">Игровой сервер</p>
+              <h2>Premazing <span>White</span></h2>
+            </div>
+            <span class="server-status is-checking" id="server-status"><i></i><span>Проверяем</span></span>
+          </div>
+          <button class="server-ip" type="button" data-copy="80.242.59.112:4141" aria-label="Скопировать IP сервера">
+            <span><small>IP-адрес</small><strong>80.242.59.112:4141</strong></span>
+            <span class="copy-icon"><svg><use href="#icon-copy"/></svg></span>
+          </button>
+          <div class="online-row"><span>Текущий онлайн</span><strong id="online-count">— <small>/ 50</small></strong></div>
+          <div class="online-track" id="online-track" role="progressbar" aria-label="Онлайн сервера" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><span id="online-fill"></span></div>
+          <div class="server-card__bottom"><span id="monitor-note">Получаем данные с сервера…</span><span>50 слотов</span></div>
+        </aside>
+      </div>
+      <a class="scroll-cue" href="#about" aria-label="Прокрутить к особенностям"><span>Листай, чтобы узнать больше</span><i></i></a>
+    </section>
+
+    <section class="section features" id="about" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div><p class="eyebrow"><span></span> Всё для твоей роли</p><h2 id="features-title">Не просто сервер.<br><em>Целый город возможностей.</em></h2></div>
+          <p>Погружайся в игру без лишних барьеров: понятный клиент, голосовое общение и механики, которые дополняют твою историю.</p>
+        </div>
+        <div class="features-grid">
+          <article class="feature-card reveal"><div class="feature-card__top"><span class="feature-icon"><svg><use href="#icon-users"/></svg></span><span class="feature-number">01</span></div><h3>12 фракций</h3><p>Государственные структуры, армия, медиа и криминальные объединения — выбирай, где раскрыть персонажа.</p></article>
+          <article class="feature-card reveal"><div class="feature-card__top"><span class="feature-icon"><svg><use href="#icon-voice"/></svg></span><span class="feature-number">02</span></div><h3>Голосовой чат</h3><p>Общайся с персонажами рядом через <code>/voice</code> и настраивай радиус голоса под игровую ситуацию.</p></article>
+          <article class="feature-card reveal"><div class="feature-card__top"><span class="feature-icon"><svg><use href="#icon-layers"/></svg></span><span class="feature-number">03</span></div><h3>Современные интерфейсы</h3><p>CEF-клиент заменяет стандартные окна на удобные игровые интерфейсы, карту и телефон.</p></article>
+          <article class="feature-card reveal"><div class="feature-card__top"><span class="feature-icon"><svg><use href="#icon-radio"/></svg></span><span class="feature-number">04</span></div><h3>Музыка в автомобиле</h3><p>Установи автозвук и включай свои треки в машине — музыку услышат игроки поблизости.</p></article>
+          <article class="feature-card reveal"><div class="feature-card__top"><span class="feature-icon"><svg><use href="#icon-box"/></svg></span><span class="feature-number">05</span></div><h3>Готовая сборка</h3><p>Не собирай клиент по частям: нужные компоненты уже внутри фирменной сборки Premazing.</p></article>
+          <article class="feature-card reveal"><div class="feature-card__top"><span class="feature-icon"><svg><use href="#icon-shield"/></svg></span><span class="feature-number">06</span></div><h3>Поддержка сообщества</h3><p>Правила, новости и помощь собраны в одном месте. Вопросы решаются в игре и в Discord.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section start-section" id="start" aria-labelledby="start-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div><p class="eyebrow"><span></span> Три шага до первой сцены</p><h2 id="start-title">Начать проще,<br><em>чем кажется.</em></h2></div>
+          <p>Установи нашу готовую сборку, добавь сервер в избранное и создай персонажа. Всё необходимое уже ждёт внутри.</p>
+        </div>
+        <div class="steps-grid">
+          <article class="step-card reveal"><span class="step-number">01</span><div class="step-content"><p class="step-kicker">Подготовка</p><h3>Установи базовую игру</h3><p>Нужны GTA: San Andreas 1.0 US и SA-MP 0.3.7. Наша сборка уже включает необходимые компоненты.</p></div><span class="step-tag">GTA SA · SA-MP</span></article>
+          <article class="step-card step-card--accent reveal"><span class="step-number">02</span><div class="step-content"><p class="step-kicker">Один архив</p><h3>Скачай клиент Premazing</h3><p>Распакуй сборку в новую папку. Не устанавливай её поверх другой игры или сторонних модов.</p></div><a class="button button--primary" href="https://discord.gg/R3mr4DkHP" target="_blank" rel="noopener noreferrer">Скачать клиент <svg><use href=https://cloud.mail.ru/public/nZJn/EE4MMmX97"#icon-download"/></svg></a></article>
+          <article class="step-card reveal"><span class="step-number">03</span><div class="step-content"><p class="step-kicker">Первый вход</p><h3>Добавь сервер и создай героя</h3><p>В SA-MP выбери «Add Server», вставь адрес и подключись. После первого входа создай персонажа — и история начнётся.</p></div><button class="step-ip" type="button" data-copy="80.242.59.112:4141"><span>80.242.59.112:4141</span><svg><use href="#icon-copy"/></svg></button></article>
+        </div>
+        <div class="start-bottom reveal"><p><svg><use href="#icon-check"/></svg> Сервер не публикуется в общем списке — добавляй адрес вручную.</p><button class="text-link" type="button" data-open-start>Открыть краткую инструкцию <svg><use href="#icon-arrow"/></svg></button></div>
+      </div>
+    </section>
+
+    <section class="section media-section" id="media" aria-labelledby="media-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div><p class="eyebrow"><span></span> Premazing в движении</p><h2 id="media-title">Почувствуй<br><em>атмосферу города.</em></h2></div>
+          <p>Официальный трейлер проекта: город, фракции и фирменные возможности — чуть больше минуты, чтобы решиться на первый вход.</p>
+        </div>
+        <div class="video-shell reveal" id="video-shell">
+          <video id="trailer" controls playsinline preload="none" poster="assets/gallery-02.jpg">
+            <source src="assets/amazing-promo.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео. <a href="assets/amazing-promo.mp4">Скачать трейлер</a>.
+          </video>
+          <button class="trailer-play" id="trailer-play" type="button" aria-label="Воспроизвести трейлер"><span><svg><use href="#icon-play"/></svg></span><strong>Смотреть трейлер</strong><small>01:07</small></button>
+        </div>
+        <div class="chapters reveal" aria-label="Главы трейлера">
+          <button class="chapter is-active" type="button" data-time="0"><img src="assets/gallery-07.jpg" alt="Городские районы Premazing" width="640" height="360"><span><small>01 · Город</small><strong>Улицы и районы</strong></span><span class="chapter-time">00:00</span></button>
+          <button class="chapter" type="button" data-time="14"><img src="assets/gallery-04.jpg" alt="Фракции проекта Premazing" width="640" height="360"><span><small>02 · Фракции</small><strong>Выбери свою сторону</strong></span><span class="chapter-time">00:14</span></button>
+          <button class="chapter" type="button" data-time="32"><img src="assets/gallery-08.jpg" alt="Службы спасения в Premazing" width="640" height="360"><span><small>03 · Возможности</small><strong>Жизнь в движении</strong></span><span class="chapter-time">00:32</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery-section" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div><p class="eyebrow"><span></span> Реальные кадры из игры</p><h2 id="gallery-title">Город, который<br><em>стоит увидеть.</em></h2></div>
+          <p>Скриншоты из игры: улицы, погони, спецоперации и повседневная жизнь персонажей. Нажми на кадр, чтобы открыть его целиком.</p>
+        </div>
+        <div class="gallery-grid">
+          <button class="gallery-item gallery-item--hero reveal" type="button" data-gallery-index="0" data-src="assets/gallery-02.jpg" data-title="Своя сторона улицы" data-kicker="01 · Криминальный мир" aria-label="Открыть кадр: Своя сторона улицы"><img src="assets/gallery-02.jpg" alt="Криминальная группировка у автомобилей" width="1920" height="1080" loading="lazy"><span class="gallery-item__meta"><small>01 · Криминальный мир</small><strong>Своя сторона улицы</strong></span><span class="gallery-item__zoom"><svg><use href="#icon-expand"/></svg></span></button>
+          <button class="gallery-item reveal" type="button" data-gallery-index="1" data-src="assets/gallery-03.jpg" data-title="Погоня на трассе" data-kicker="02 · Полиция" aria-label="Открыть кадр: Погоня на трассе"><img src="assets/gallery-03.jpg" alt="Полицейская погоня на трассе" width="1920" height="1080" loading="lazy"><span class="gallery-item__meta"><small>02 · Полиция</small><strong>Погоня на трассе</strong></span><span class="gallery-item__zoom"><svg><use href="#icon-expand"/></svg></span></button>
+          <button class="gallery-item reveal" type="button" data-gallery-index="2" data-src="assets/gallery-05.jpg" data-title="Ночной пост" data-kicker="03 · Зимний город" aria-label="Открыть кадр: Ночной пост"><img src="assets/gallery-05.jpg" alt="Полицейский пост на зимнем мосту" width="1920" height="1080" loading="lazy"><span class="gallery-item__meta"><small>03 · Зимний город</small><strong>Ночной пост</strong></span><span class="gallery-item__zoom"><svg><use href="#icon-expand"/></svg></span></button>
+          <button class="gallery-item reveal" type="button" data-gallery-index="3" data-src="assets/gallery-01.jpg" data-title="Задержание" data-kicker="04 · Спецоперация" aria-label="Открыть кадр: Задержание"><img src="assets/gallery-01.jpg" alt="Сотрудники полиции задерживают подозреваемого" width="1920" height="1080" loading="lazy"><span class="gallery-item__meta"><small>04 · Спецоперация</small><strong>Задержание</strong></span><span class="gallery-item__zoom"><svg><use href="#icon-expand"/></svg></span></button>
+          <button class="gallery-item reveal" type="button" data-gallery-index="4" data-src="assets/gallery-04.jpg" data-title="Оцепление" data-kicker="05 · Спецназ" aria-label="Открыть кадр: Оцепление"><img src="assets/gallery-04.jpg" alt="Спецназ оцепил площадь" width="1920" height="1080" loading="lazy"><span class="gallery-item__meta"><small>05 · Спецназ</small><strong>Оцепление</strong></span><span class="gallery-item__zoom"><svg><use href="#icon-expand"/></svg></span></button>
+          <button class="gallery-item reveal" type="button" data-gallery-index="5" data-src="assets/gallery-07.jpg" data-title="Спальный район" data-kicker="06 · Город" aria-label="Открыть кадр: Спальный район"><img src="assets/gallery-07.jpg" alt="Городской спальный район с высотками" width="1920" height="1080" loading="lazy"><span class="gallery-item__meta"><small>06 · Город</small><strong>Спальный район</strong></span><span class="gallery-item__zoom"><svg><use href="#icon-expand"/></svg></span></button>
+          <button class="gallery-item reveal" type="button" data-gallery-index="6" data-src="assets/gallery-08.jpg" data-title="Пожар в центре" data-kicker="07 · Служба спасения" aria-label="Открыть кадр: Пожар в центре"><img src="assets/gallery-08.jpg" alt="Пожарные тушат пожар в жилом доме" width="1920" height="1080" loading="lazy"><span class="gallery-item__meta"><small>07 · Служба спасения</small><strong>Пожар в центре</strong></span><span class="gallery-item__zoom"><svg><use href="#icon-expand"/></svg></span></button>
+          <button class="gallery-item reveal" type="button" data-gallery-index="7" data-src="assets/gallery-09.jpg" data-title="Ночная трасса" data-kicker="08 · Авто" aria-label="Открыть кадр: Ночная трасса"><img src="assets/gallery-09.jpg" alt="Ночная трасса и тюнингованные автомобили" width="1920" height="1080" loading="lazy"><span class="gallery-item__meta"><small>08 · Авто</small><strong>Ночная трасса</strong></span><span class="gallery-item__zoom"><svg><use href="#icon-expand"/></svg></span></button>
+          <button class="gallery-item reveal" type="button" data-gallery-index="8" data-src="assets/gallery-06.jpg" data-title="Утренний развод" data-kicker="09 · Армия" aria-label="Открыть кадр: Утренний развод"><img src="assets/gallery-06.jpg" alt="Сотрудники в форме на утреннем построении" width="1920" height="1080" loading="lazy"><span class="gallery-item__meta"><small>09 · Армия</small><strong>Утренний развод</strong></span><span class="gallery-item__zoom"><svg><use href="#icon-expand"/></svg></span></button>
+        </div>
+        <div class="gallery-foot reveal"><span>9 кадров из игры Premazing</span><button class="text-link" id="gallery-open-first" type="button">Открыть галерею <svg><use href="#icon-arrow"/></svg></button></div>
+      </div>
+    </section>
+
+    <section class="section community-section" id="community" aria-labelledby="community-title">
+      <div class="container">
+        <div class="community-panel reveal">
+          <div class="community-glow" aria-hidden="true"></div>
+          <div class="community-copy">
+            <span class="community-icon"><svg><use href="#icon-discord"/></svg></span>
+            <p class="eyebrow"><span></span> Официальное сообщество</p>
+            <h2 id="community-title">История начинается<br><em>не в одиночку.</em></h2>
+            <p>Новости, обновления клиента, поддержка и игроки уже в Discord. Присоединяйся до первого входа — так проще найти ответы и будущих союзников.</p>
+            <div class="community-actions"><a class="button button--light" href="https://discord.gg/R3mr4DkHP" target="_blank" rel="noopener noreferrer">Вступить в Discord <svg><use href="#icon-arrow"/></svg></a><a class="button button--dark" href="https://premaze-forum-m2ds0hqr30a.qoder.website/" target="_blank" rel="noopener noreferrer">Перейти на форум</a></div>
+          </div>
+          <div class="community-stats" aria-label="Краткая информация"><div><strong>12</strong><span>фракций</span></div><div><strong>50</strong><span>слотов</span></div><div><strong>CEF</strong><span>клиент проекта</span></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <div class="footer-brand"><a class="brand" href="#top" aria-label="Premazing — наверх"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span class="brand-name">PREMAZING<small>ROLE PLAY</small></span></a><p>Городской RolePlay-проект<br>на базе GTA: San Andreas.</p></div>
+      <div class="footer-links"><div><h3>Проект</h3><a href="#about">Особенности</a><a href="#start">Как начать играть</a><a href="#media">Медиа</a><a href="#gallery">Галерея</a></div><div><h3>Игрокам</h3><a href="https://premaze-forum-m2ds0hqr30a.qoder.website/" target="_blank" rel="noopener noreferrer">Форум</a><a href="https://premaze-forum-m2ds0hqr30a.qoder.website/#/forum/pravila" target="_blank" rel="noopener noreferrer">Правила сервера</a><a href="#agreement" data-dialog-target="agreement-dialog">Пользовательское соглашение</a><a href="#privacy" data-dialog-target="privacy-dialog">Политика конфиденциальности</a></div></div>
+      <div class="footer-server"><p>Добавь сервер в избранное</p><button type="button" data-copy="80.242.59.112:4141"><span>80.242.59.112:4141</span><svg><use href="#icon-copy"/></svg></button><span>SA-MP 0.3.7 · Windows</span></div>
+    </div>
+    <div class="container footer-bottom"><p>© <span id="current-year">2026</span> Premazing. Все права защищены.</p><p>Проект не связан с Rockstar Games, Take-Two Interactive и командой SA-MP. Названия и товарные знаки принадлежат их правообладателям.</p></div>
+  </footer>
+
+  <dialog class="modal start-modal" id="start-dialog" aria-labelledby="start-modal-title">
+    <button class="modal-close" type="button" data-close-dialog aria-label="Закрыть"><svg><use href="#icon-close"/></svg></button>
+    <p class="eyebrow"><span></span> Добро пожаловать в Premazing</p>
+    <h2 id="start-modal-title">До первой сцены<br><em>осталось три шага.</em></h2>
+    <ol class="modal-steps"><li><span>1</span><div><strong>Скачай сборку</strong><p>Получи клиент в нашем Discord и распакуй его в новую папку.</p></div></li><li><span>2</span><div><strong>Добавь сервер</strong><p>В SA-MP нажми «Add Server» и вставь IP-адрес проекта.</p></div></li><li><span>3</span><div><strong>Создай персонажа</strong><p>Подключись к серверу, придумай героя и начни свою историю.</p></div></li></ol>
+    <button class="server-ip" type="button" data-copy="80.242.59.112:4141"><span><small>IP сервера · нажми, чтобы скопировать</small><strong>80.242.59.112:4141</strong></span><span class="copy-icon"><svg><use href="#icon-copy"/></svg></span></button>
+    <div class="modal-actions"><a class="button button--primary" href="https://cloud.mail.ru/public/nZJn/EE4MMmX97" target="_blank" rel="noopener noreferrer">Скачать клиент <svg><use href=https://cloud.mail.ru/public/nZJn/EE4MMmX97"#icon-download"/></svg></a><a class="button button--ghost" href="https://premaze-forum-m2ds0hqr30a.qoder.website/#/forum/pravila" target="_blank" rel="noopener noreferrer">Прочитать правила</a></div>
+  </dialog>
+
+  <dialog class="modal legal-modal" id="agreement-dialog" aria-labelledby="agreement-title">
+    <button class="modal-close" type="button" data-close-dialog aria-label="Закрыть"><svg><use href="#icon-close"/></svg></button>
+    <p class="eyebrow"><span></span> Документы проекта</p><h2 id="agreement-title">Пользовательское соглашение</h2>
+    <div class="legal-copy"><p>Используя сайт, игровой клиент и серверы Premazing, вы принимаете правила проекта и обязуетесь соблюдать их во время игры и общения в сообществе.</p><h3>Аккаунт и доступ</h3><p>Вы отвечаете за сохранность данных своего аккаунта и действия, совершённые с него. Передача доступа третьим лицам не снимает эту ответственность.</p><h3>Честная игра</h3><p>Запрещены читы, использование ошибок для получения преимущества, обход блокировок и вмешательство в работу клиента или сервера.</p><h3>Изменения</h3><p>Проект может обновлять игровые механики, клиент и правила. Актуальная редакция правил публикуется на официальном форуме.</p></div>
+  </dialog>
+
+  <dialog class="modal legal-modal" id="privacy-dialog" aria-labelledby="privacy-title">
+    <button class="modal-close" type="button" data-close-dialog aria-label="Закрыть"><svg><use href="#icon-close"/></svg></button>
+    <p class="eyebrow"><span></span> Документы проекта</p><h2 id="privacy-title">Политика конфиденциальности</h2>
+    <div class="legal-copy"><p>Этот статический сайт не создаёт аккаунты, не использует аналитические счётчики и не сохраняет персональные данные в браузере.</p><h3>Технические запросы</h3><p>При открытии сайта сервер обрабатывает стандартный сетевой запрос. Виджет мониторинга получает только публичные сведения игрового сервера: доступность, число игроков и лимит слотов.</p><h3>Внешние сервисы</h3><p>Discord и форум работают по собственным правилам обработки данных. Переходя по внешним ссылкам, ознакомьтесь с политикой соответствующего сервиса.</p><h3>Данные для связи</h3><p>Не отправляйте пароли, платёжные данные и другую конфиденциальную информацию через публичные каналы сообщества.</p></div>
+  </dialog>
+
+  <dialog class="lightbox" id="gallery-dialog" aria-labelledby="gallery-dialog-title">
+    <button class="modal-close" type="button" data-close-dialog aria-label="Закрыть"><svg><use href="#icon-close"/></svg></button>
+    <div class="lightbox__frame"><img id="gallery-dialog-image" src="assets/gallery-02.jpg" alt=""></div>
+    <div class="lightbox__bar">
+      <div class="lightbox__caption"><small id="gallery-dialog-kicker">01 · Криминальный мир</small><strong id="gallery-dialog-title">Своя сторона улицы</strong></div>
+      <div class="lightbox__nav">
+        <span id="gallery-dialog-count">1 / 9</span>
+        <button class="lightbox__button" id="gallery-prev" type="button" aria-label="Предыдущий кадр"><svg><use href="#icon-arrow"/></svg></button>
+        <button class="lightbox__button" id="gallery-next" type="button" aria-label="Следующий кадр"><svg><use href="#icon-arrow"/></svg></button>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"><svg><use href="#icon-check"/></svg><span></span></div>
+  <script src="script.js" defer></script>
+</body>
+</html>
